@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  mariadb:
+    image: mariadb:10.3
+    environment:
+      - MYSQL_DATABASE=user_management
+      - MYSQL_USER=max
+      - MYSQL_PASSWORD=program1
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3308:3306"
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"

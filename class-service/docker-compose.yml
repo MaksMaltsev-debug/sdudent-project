@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  mariadb:
+    image: mariadb:10.3
+    environment:
+      - MYSQL_DATABASE=class_management
+      - MYSQL_USER=max
+      - MYSQL_PASSWORD=program1
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3309:3306"

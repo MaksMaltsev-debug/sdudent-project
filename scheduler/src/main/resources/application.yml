@@ -1,0 +1,41 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 2s
+          max-attempts: 3
+          max-interval: 5s
+          multiplier: 2
+  datasource:
+    url: jdbc:mysql://localhost:3306/scheduler?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: program1
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      max-lifetime: 600000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  flyway:
+    outOfOrder: true
+    validateOnMigrate: false
+    table: _SCHEMA_VERSION
+    enabled: true
+
+app:
+  name: scheduler-service
+
+org:
+  quartz:
+    scheduler:
+      instanceName: oshi-quartz-scheduler
+      instanceId: AUTO
+    threadPool:
+      threadCount: 5
+
